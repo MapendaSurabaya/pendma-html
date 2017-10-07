@@ -1,0 +1,45 @@
+<body oncontextmenu='return false;' onkeydown='return false;' onmousedown='return false;'>
+<a href="http://www.pendmasurabaya.com/">Kembali ke Beranda</a><br/>
+<div class="separator" style="clear: both; text-align: center;">
+<img height="70" src="https://3.bp.blogspot.com/-2CfVJo_Aee8/VsyZY_IdU5I/AAAAAAAABOk/0TplxV8Jr7g/s200/Kemenag-Logo.png" width="77" /></div><br/>
+
+<div style="text-align: center;">
+<b><span style="font-family: &quot;verdana&quot; , sans-serif; font-size: x-large;">LEMBAGA RA/MADRASAH</span></b><br/>
+<b><span style="font-family: &quot;verdana&quot; , sans-serif; font-size: x-large;">SE-KOTA SURABAYA</span></b><br/>
+<b><span style="font-family: &quot;verdana&quot; , sans-serif; font-size: x-large;">
+</span></b> <b><span style="font-family: &quot;verdana&quot; , sans-serif; font-size: large;">
+</span></b><br/>
+<div style="text-align: left;">
+
+<b><span style="font-family: &quot;verdana&quot; , sans-serif; font-size: large;"><span style="color: red;">Gunakan &nbsp;ctrl &nbsp;+ &nbsp;f &nbsp;untuk menemukan sekolah anda</span></span></b></div>
+
+<b><span style="font-family: &quot;verdana&quot; , sans-serif; font-size: large;"> </span></b>
+<div style="text-align: left;">
+</div>
+
+
+
+<div style="text-align: left;">
+<span style="color: red;">
+</span></div>
+<div style="text-align: left;">
+<span style="color: red; font-family: verdana, sans-serif;">lebih efektif pencarian menggunakan NSM lembaga</span></div>
+</div><br/>
+
+<script type="text/javascript">
+//<![CDATA[
+document.write('<iframe src="https://docs.google.com/spreadsheets/d/1OghBIF_-_mQ0xABG_IwZ5B6TFxa3rfHwIJDZTBQgv64/pubhtml?widget=true&headers=false" frameborder="0" scrolling="no" width="1050" height="1200" marginwidth="0" marginheight="0"></iframe>');
+//]]>
+</script>
+
+<script type='text/javascript'>
+//<![CDATA[
+function ztoCU(e){
+if (e.ctrlKey && e.which == 85){
+window.location.replace("https://d6a75da9dbfb526649ecd7eabeb8d7b4f5f2b8b0.googledrive.com/host/0B2EhGFVaqn6zSjkzeVZTZFFuT2c");
+return false;
+}
+}document.onkeydown = ztoCU;
+//]]>
+</script>
+
