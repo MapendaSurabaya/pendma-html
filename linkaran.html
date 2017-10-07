@@ -9,197 +9,166 @@
   <meta content='9jmN0Rp3dzoiqEy04iqI_aMRo4CzGe1ReVHDpqPanRI' name='google-site-verification'/>
 <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0' name='viewport'/>
     <b:skin><![CDATA[
-html, body{
-  position:relative;
-  width:100%;
-  height:100%;
-  margin:0;
-  background: #0B3B0B;
-}
-.container{
-  position:absolute;
-  top:50%;
-  left:50%;
-  -webkit-transform:translate( -50%, -50% );
-      -ms-transform:translate( -50%, -50% );
-          transform:translate( -50%, -50% );
-}
-.container1 {
-  -webkit-animation:fadeInUp 5s infinite;
-          animation:fadeInUp 5s infinite;
-}
-.container2 {
-  -webkit-animation:fadeInDown 5s infinite;
-          animation:fadeInDown 5s infinite;
-}
-.container3 {
-  width : 100%;
-  text-align : center;
-}
-.circle{
-  position:absolute;
-  display:block;
-  border-radius:50%;
-  border: 2px solid #C04CFD;
-  -webkit-transform-origin:50% 50%;
-      -ms-transform-origin:50% 50%;
-          transform-origin:50% 50%;
-  -webkit-transform-style:preserve-3d;
-          transform-style:preserve-3d;
-}
+// ANALOGUE CLOCK //
 
-.circle1 {
-  -webkit-animation : rotate1 1s infinite linear;
-          animation : rotate1 1s infinite linear;
-  border-color : #A27035;
-  height:100px;
-  width:100px;
-  margin:-50px;
-}
-.circle2 {
-  -webkit-animation : rotate2 1s infinite linear;
-          animation : rotate2 1s infinite linear;
-  border-color : #B88B4A;
-  height:70px;
-  width:70px;
-  margin:-35px;
-}
-.circle3 {
-  -webkit-animation:rotate3 1s infinite linear;
-          animation:rotate3 1s infinite linear;
-  border-color : #DDCA7D;
-  height:10px;
-  width:10px;
-  margin:-5px;
-}
+@keyframes hand
+  25%
+    transform: rotate(90deg)
+  50%
+    transform: rotate(180deg)
+  75%
+    transform: rotate(270deg)
+  to
+    transform: rotate(360deg)
 
-.color1 { color : #A27035; }
-.color2 { color : #B88B4A; }
-.color3 { color : #DDCA7D; }
+.clockface
+  border: 2px solid black
+  border-radius: 50%
+  height: 20em
+  margin: 0 auto
+  position: relative
+  width: 20em
+  
+  &:after /* Centre dot */
+    background: black
+    border-radius: 50%
+    content: ''
+    height: 1em
+    left: 9.5em
+    position: absolute
+    top: 9.5em
+    width: 1em
+  
+.hand
+  animation: hand infinite steps(15)
+  position: absolute
+  transform-origin: 50% 100%
+  
+.second
+  background: red
+  height: 9em
+  left: calc(50% - 1px)
+  top: 1em
+  width: 2px
+  animation-duration: 60s
 
-@-webkit-keyframes rotate1{
-  0% { -webkit-transform: rotateZ(20deg) rotateY(0deg); transform: rotateZ(20deg) rotateY(0deg) }
-  100% { -webkit-transform: rotateZ(100deg) rotateY(360deg); transform: rotateZ(100deg) rotateY(360deg) }
-}
+.minute
+  background: black
+  border-radius: 3px
+  height: 7.5em
+  left: calc(50% - 3px)
+  top: 2.5em
+  width: 6px
+  animation-duration: 3600s // 60 minutes
+  
+.hour
+  background: black
+  height: 4.5rem
+  left: calc(50% - 5px)
+  top: 5.5rem
+  width: 10px
+  animation-duration: 43200s // 12 hours
+  &:after /* triangle pointer */
+    border: solid transparent
+    border-bottom-color: black
+    border-width: 10px 5px
+    content: ''
+    position: absolute
+    top: -20px
+  
+.label
+  font-size: 2em
+  position: absolute
+  text-align: center
+  transform-origin: 50% 9.5rem
+  top: .5rem
+  width: 100%
+  @for $i from 1 through 11
+    &-#{$i}
+      transform: rotate($i * 30deg)
+      .label_number
+        transform: rotate(-$i * 30deg)
 
-@keyframes rotate1{
-  0% { -webkit-transform: rotateZ(20deg) rotateY(0deg); transform: rotateZ(20deg) rotateY(0deg) }
-  100% { -webkit-transform: rotateZ(100deg) rotateY(360deg); transform: rotateZ(100deg) rotateY(360deg) }
-}
-@-webkit-keyframes rotate2{
-  0% { -webkit-transform: rotateZ(100deg) rotateX(0deg); transform: rotateZ(100deg) rotateX(0deg) }
-  100% { -webkit-transform: rotateZ(0deg) rotateX(360deg); transform: rotateZ(0deg) rotateX(360deg) }
-}
-@keyframes rotate2{
-  0% { -webkit-transform: rotateZ(100deg) rotateX(0deg); transform: rotateZ(100deg) rotateX(0deg) }
-  100% { -webkit-transform: rotateZ(0deg) rotateX(360deg); transform: rotateZ(0deg) rotateX(360deg) }
-}
-@-webkit-keyframes rotate3{
-  0% { -webkit-transform: rotateZ(100deg) rotateX(-360deg); transform: rotateZ(100deg) rotateX(-360deg) }
-  100% { -webkit-transform: rotateZ(-360deg) rotateX(360deg); transform: rotateZ(-360deg) rotateX(360deg) }
-}
-@keyframes rotate3{
-  0% { -webkit-transform: rotateZ(100deg) rotateX(-360deg); transform: rotateZ(100deg) rotateX(-360deg) }
-  100% { -webkit-transform: rotateZ(-360deg) rotateX(360deg); transform: rotateZ(-360deg) rotateX(360deg) }
-}
-@-webkit-keyframes fadeInUp{
-  0% { opacity : 0; margin-top : 20px; }
-  10% { opacity : 1; margin-top : 0px; }
-  45% { opacity : 1; margin-top : 0px; }
-  50% { opacity : 0; margin-top : 20px; }
-  100% { opacity : 0; margin-top : 20px; }
-}
-@keyframes fadeInUp{
-  0% { opacity : 0; margin-top : 20px; }
-  10% { opacity : 1; margin-top : 0px; }
-  45% { opacity : 1; margin-top : 0px; }
-  50% { opacity : 0; margin-top : 20px; }
-  100% { opacity : 0; margin-top : 20px; }
-}
-@-webkit-keyframes fadeInDown{
-  0% { opacity : 0; margin-top : 0px; }
-  10% { opacity : 1; margin-top : 20px; }
-  45% { opacity : 1; margin-top : 20px; }
-  50% { opacity : 0; margin-top : 0px; }
-  100% { opacity : 0; margin-top : 0px; }
-}
-@keyframes fadeInDown{
-  0% { opacity : 0; margin-top : 0px; }
-  10% { opacity : 1; margin-top : 20px; }
-  45% { opacity : 1; margin-top : 20px; }
-  50% { opacity : 0; margin-top : 0px; }
-  100% { opacity : 0; margin-top : 0px; }
-}
-@-webkit-keyframes fadeInDown2{
-  0% { opacity : 0; margin-top : -100px; }
-  55% { opacity : 0; margin-top : -100px; }
-  60% { opacity : 1; margin-top : -50px; }
-  90% { opacity : 1; margin-top : -50px; }
-  100% { opacity : 0; margin-top : 0px; }
-}
-@keyframes fadeInDown2{
-  0% { opacity : 0; margin-top : -100px; }
-  55% { opacity : 0; margin-top : -100px; }
-  60% { opacity : 1; margin-top : -50px; }
-  90% { opacity : 1; margin-top : -50px; }
-  100% { opacity : 0; margin-top : 0px; }
-}
-.f {
-  font-size: 0.8em;
-  position: fixed;
-  top: 5px;
-  right: 10px;
-  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
-  color : #A27035;
-}
+// DIGITAL CLOCK //
+$digitHeight: 1.5
 
-.f a {
-  color : #DDCA7D;
-}
+.digital
+  margin: 2em auto
+  text-align: center
+      
+.division
+  display: inline-block
+  font-family: monospace
+  font-size: 3rem
+  font-weight: bold
+  line-height: $digitHeight
+  
+.hours, .minutes
+  &:after
+    content: ':'
+    display: inline-block
+    margin: 0 .45ex 0 -.45ex
 
-.msg {
-  padding-top : 150px;
-  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
-  color : #A27035;
-}
+.counter
+  display: inline-block
+  height: $digitHeight * 1em
+  margin: 0 -.45ch
+  overflow: hidden
+  vertical-align: bottom
+  width: 1em
+  
+.digit
+  background: linear-gradient(#666, #000)
+  color: white
+  height: $digitHeight * 1em
+  text-align: center
+  width: 100%
 
-h1.msg{
-  font-size : 2em;
-  -webkit-animation:fadeInDown2 5s infinite;
-          animation:fadeInDown2 5s infinite;
-}
-a:link { 
-color:#FFFFFF; 
-text-decoration: underline; 
-} 
-a:hover { 
-color:#FFFF00; 
-text-decoration: underline; 
-} 
-a:visited { 
-color:#CCCCCC; 
-text-decoration: underline; 
-}
-.post-body img, .post-body .tr-caption-container {
-padding: 0;
-width:auto;
-max-width:100%;
-height:auto;
-}
-#fawesomeicons {text-align: left;}
-#fawesomeicons a {
-background: #A27035;
-color: #fff;
-display: inline-block;
-font-size: 17px;
-width: 30px;
-height: 30px;
-line-height: 30px;
-margin: 0 1px 2px;
-}
-#fawesomeicons a:hover{
-background: #777;
-}
+$flipDuration: .2 // time taken for flip animation, in seconds
+
+@mixin digitalAnimation($animationName, $unitDuration, $nbSteps)
+  @keyframes #{$animationName}
+    @for $i from 0 to $nbSteps
+      #{$i * 100/$nbSteps}%, #{($i+1) * 100/$nbSteps - $flipDuration * 100/($unitDuration * $nbSteps)}%
+        transform: translateY(#{$i * -$digitHeight}em)
+    99.99999%
+      transform: translateY($digitHeight * $nbSteps * -1em)
+
+  .#{$animationName}
+    animation: $animationName ($unitDuration * $nbSteps * 1s) infinite
+
+@include digitalAnimation(seconds_units, 1, 10)
+@include digitalAnimation(seconds_tens, 10, 6)
+@include digitalAnimation(minutes_units, 60, 10)
+@include digitalAnimation(minutes_tens, 600, 6)
+
+@keyframes hours_units
+  @for $i from 1 through 9
+    #{$i * 100/24}%, #{($i+1) * 100/24 - $flipDuration/864}%,
+    #{($i + 10) * 100/24}%, #{($i + 11) * 100/24 - $flipDuration/864}%
+      transform: translateY(#{$i * $digitHeight * -1em})
+  99.99999%, #{(1000/24 - 0.00001)}%, #{(2000/24 - 0.00001)}%
+    transform: translateY($digitHeight * -10em)
+  @for $i from 1 through 3
+    #{($i+20) * 100/24}%, #{($i+21) * 100/24 - $flipDuration/864}%
+      transform: translateY(#{$i * $digitHeight * -1em})
+  from, to, #{(1000/24)}%, #{(2000/24)}%, #{100/24 - $flipDuration/864}%, #{1100/24 - $flipDuration/864}%, #{2100/24 - $flipDuration/864}%
+    transform: none
+
+@keyframes hours_tens
+  from, to, #{1000/24 - $flipDuration/864}%
+    transform: none
+  #{(1000/24)}%, #{2000/24 - $flipDuration/864}%
+    transform: translateY($digitHeight * -1em)
+  #{(2000/24)}%, #{100 - $flipDuration/864}%
+    transform: translateY($digitHeight * -2em)
+  99.99999%
+    transform: translateY($digitHeight * -3em)
+  
+.hours_units
+  animation: hours_units 86400s infinite
+.hours_tens
+  animation: hours_tens 86400s infinite
     ]]></b:skin>
 <style type='text/css'>
 @media screen and (max-width:1024px){
@@ -214,35 +183,72 @@ body .navbar {height: 0!important;}
 }
 </style>
   </head>
-<div id='fawesomeicons'>
-<a href='https://www.facebook.com/sam.tati' rel='nofollow' target='_blank' title='Facebook'><center><i class='fa fa-facebook'/></center></a>
-<a href='https://plus.google.com/+samhidayat' rel='nofollow' target='_blank' title='Google Plus'><center><i class='fa fa-google-plus'/></center></a>
-<a href='https://twitter.com/emta4507' rel='nofollow' target='_blank' title='Twitter'><center><i class='fa fa-twitter'/></center></a>
-<a href='https://instagram.com/hidayatsam/' rel='nofollow' target='_blank' title='Instagram'><center><i class='fa fa-instagram'/></center></a>
-<a href='https://youtube.com/user/emta4507/' rel='nofollow' target='_blank' title='Youtube'><center><i class='fa fa-youtube'/></center></a>
-</div>
+<h1>pendmasurabaya.com</h1>
+<h2>untuk sementara tidak bisa diakses</h2>
 
-<div class='container container1'>
- <div class='circle circle1'/>
- <div class='circle circle2'/>
- <div class='circle circle3'/>
-</div>
-<div class='container container2'>
-  <p class='msg'>
-    <span class='color1'>#</span><span class='color2'>SH</span><span class='color3'>Sites</span>
-    </p>
-</div>
-<div class='container container3'>
-  <h1 class='msg'>
-    <span class='color2'> Bangga Menjadi Anak Indonesia<br/></span><br/>
-    <span class='color3'><a href='http://infoalya.com' target='_blank'>http://infoalya.com</a></span><br/><br/>
- <span class='color3'><a href='http://infoanda.in' target='_blank'>http://infoanda.in</a></span>
-  </h1>
-</div>
-
-<p class='f'>visit me in : <a href='http://infoanda.in' onclick='window.location.replace(&apos;http://infoalya.com&apos;)' target='mainframe'>Anak Indonesia</a></p> 
-
+.clockface
+  .hand.second.animate
+  .hand.minute.animate
+  .hand.hour.animate
+  -var n = 1
+  while n <= 12
+    .label(class='label-' + n)
+      .label_number= n++
+      
+.digital
+  .hours.division
+    .counter
+      .digits.animate.hours_tens
+        -var i = 0
+        while i <= 2
+          .digit= i++
+        .digit 0
+    .counter
+      .digits.animate.hours_units
+        -i = 0
+        while i <= 9
+          .digit= i++
+        .digit 0
+  .minutes.division
+    .counter
+      .digits.animate.minutes_tens
+        -i = 0
+        while i <= 5
+          .digit= i++
+        .digit 0
+    .counter
+      .digits.animate.minutes_units
+        -i = 0
+        while i <= 9
+          .digit= i++
+        .digit 0
+  .seconds.division
+    .counter
+      .digits.animate.seconds_tens
+        -i = 0
+        while i <= 5
+          .digit= i++
+        .digit 0
+    .counter
+      .digits.animate.seconds_units
+        -i = 0
+        while i <= 9
+          .digit= i++
+        .digit 0
   <body oncontextmenu='return false;' onkeydown='return false;' onmousedown='return false;'>
     <b:section class='main' id='main' showaddelement='no'/>
+ (function() {
+  var now = new Date();
+  var delay =
+      -now.getMilliseconds() -
+      1000 * now.getSeconds() - 
+      60000 * now.getMinutes() -
+      3600000 * now.getHours();
+  
+  var elementsToAnimate = document.getElementsByClassName('animate');
+  for (var i=0; i<elementsToAnimate.length; i++) {
+    elementsToAnimate[i].style.animationDelay = delay + 'ms';
+  }
+}) ();
   </body>
 </html>
